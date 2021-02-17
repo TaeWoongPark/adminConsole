@@ -34,7 +34,7 @@ public class Refer {
 	static String TimeEnd = null;		// timestamp 종료 시간
 	static String tempLow = null;		// 저가 임시
 	static String tempAverage = null;	// 평단가 임시
-	static int tempCount = 0;		// 해당 timestamp 시간 안에 거래수
+	static int tempCount = 0;			// 해당 timestamp 시간 안에 거래수
 	static String tempWeightedAverage = null;	// 가중평균 임시
 	
 	public void set(String line) {
@@ -45,7 +45,6 @@ public class Refer {
 	// 최초 거래시작 시간
 	public void firstTimestamp(String line) {
 		String list[] = line.split(",");
-		
 		Time = list[timestamp];
 		TimeEnd = Long.toString(Long.parseLong(Time) + 29);
 		Temp.setStart(Time);
@@ -61,7 +60,6 @@ public class Refer {
 			}
 			// 종가(close)
 			Temp.setClose(list[price]);
-//			tempLow = list[price];
 			// 고가(high)
 			if(Temp.getHigh() == null) {
 				Temp.setHigh(list[price]);
@@ -124,7 +122,6 @@ public class Refer {
 			Output.add(Temp);
 			
 			// temp init
-//			Temp = new JSONObject();
 			Temp = new Console();
 
 			// time + 30
